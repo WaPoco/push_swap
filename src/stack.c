@@ -6,7 +6,7 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 16:26:06 by vpogorel          #+#    #+#             */
-/*   Updated: 2025/03/09 19:35:05 by vpogorel         ###   ########.fr       */
+/*   Updated: 2025/03/09 22:39:15 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_stack	*createStack(int arg0, char **args)
 		printf("Error allocating memory!");
 		exit(1);
 	}
-	if(arg0 == 0)
+	if(arg0 == 1)
 	{
 		initializeStack(stack);
 		return (stack);
@@ -57,6 +57,21 @@ t_stack	*createStack(int arg0, char **args)
 		tmp->next = NULL;
 	}
 	return (stack);
+}
+
+int	stack_len(t_stack *stack)
+{
+	t_node	*temp;
+	int	i;
+
+	i = 0;
+	temp = stack->head;
+	while (temp->next != NULL)
+	{
+		i++;
+		temp = temp->next;
+	}
+	return (i);
 }
 
 void	printStack(t_node *currentNode)

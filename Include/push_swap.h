@@ -6,7 +6,7 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 19:31:14 by vpogorel          #+#    #+#             */
-/*   Updated: 2025/03/09 20:11:14 by vpogorel         ###   ########.fr       */
+/*   Updated: 2025/03/09 22:42:22 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,12 @@ void	reverseRotate(t_stack *stack);
 void	swap(t_stack *stack);
 void	pop(t_stack *a);
 void	push(t_stack *a, t_stack *b, char dstack);
+int		stack_len(t_stack *stack);
+
 
 // sort three
 void	determin_case(t_stack *stack, int num1, int num2, int num3);
+void	sort(t_stack *stack_a, t_stack *stack_b);
 
 //check arguments for errors
 void	check_arguments(int args0, char **args);
