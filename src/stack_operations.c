@@ -6,7 +6,7 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 16:31:37 by vpogorel          #+#    #+#             */
-/*   Updated: 2025/03/09 20:03:59 by vpogorel         ###   ########.fr       */
+/*   Updated: 2025/03/12 20:14:11 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,20 +89,20 @@ void	pop(t_stack *a)
 	free(temp);
 }
 
-void	push(t_stack *a, t_stack *b, char dstack)
+void	push(t_stacks *stacks, char dstack)
 {
 	int temp;
 
 	if (dstack == 'a')
 	{
-		temp = b->head->number;
-		pop(b);
-		add(a, temp);
+		temp = stacks->stack_b->head->number;
+		pop(stacks->stack_b);
+		add(stacks->stack_a, temp);
 	}
 	else
 	{
-		temp = a->head->number;
-		pop(a);
-		add(b, temp);
+		temp = stacks->stack_b->head->number;
+		pop(stacks->stack_a);
+		add(stacks->stack_b, temp);
 	}
 }

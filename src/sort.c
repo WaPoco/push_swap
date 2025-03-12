@@ -6,7 +6,7 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 19:43:04 by vpogorel          #+#    #+#             */
-/*   Updated: 2025/03/10 11:57:59 by vpogorel         ###   ########.fr       */
+/*   Updated: 2025/03/12 20:14:09 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,21 +59,20 @@ void	determin_case(t_stack *stack, int num1, int num2, int num3)
 	}
 }
 
-void	sort(t_stack *stack_a, t_stack *stack_b)
+void	sort(t_stacks *stacks)
 {
 	int	len_stack_a;
 
-	(void)stack_b;
-	len_stack_a = stack_len(stack_a);
+	len_stack_a = stack_len(stacks->stack_a);
 	if (len_stack_a == 1)
 		return ;
 	else if (len_stack_a == 2)
-		sort_two(stack_a);
+		sort_two(stacks->stack_a);
 	else if (len_stack_a == 3)
-		sort_three(stack_a);
-	push(stack_a, stack_b, 'b');
-	push(stack_a, stack_b, 'b');
-	//move_cheapest(stack_a, stack_b);
-	//sort_three(stack_a);
-	//move_stack_a(stack_a, stack_b);
+		sort_three(stacks->stack_a);
+	push(stacks, 'b');
+	push(stacks, 'b');
+	move_cheapest(stacks);
+	sort_three(stacks->stack_a);
+	move_stack_a(stacks);
 }
