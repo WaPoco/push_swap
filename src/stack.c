@@ -6,7 +6,7 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 16:26:06 by vpogorel          #+#    #+#             */
-/*   Updated: 2025/03/12 20:14:12 by vpogorel         ###   ########.fr       */
+/*   Updated: 2025/03/21 17:32:11 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	initializeStack(t_stack *stack)
 t_stack	*createStack(int arg0, char **args)
 {
 	int			i;
-	t_stack	*stack;
-	t_node	*tmp;
+	t_stack		*stack;
+	t_node		*tmp;
 
 	i = 1;
 	stack = (t_stack *)malloc(sizeof(t_stack));
@@ -43,7 +43,7 @@ t_stack	*createStack(int arg0, char **args)
 		printf("Error allocating memory!");
 		exit(1);
 	}
-	if(arg0 == 1)
+	if (arg0 == 1)
 	{
 		initializeStack(stack);
 		return (stack);
@@ -54,8 +54,8 @@ t_stack	*createStack(int arg0, char **args)
 	{
 		tmp->next = createNode(ft_atoi(args[i]));
 		tmp = tmp->next;
-		tmp->next = NULL;
 	}
+	tmp->next = NULL;
 	return (stack);
 }
 
@@ -66,7 +66,7 @@ int	stack_len(t_stack *stack)
 
 	i = 0;
 	temp = stack->head;
-	while (temp->next != NULL)
+	while (temp != NULL)
 	{
 		i++;
 		temp = temp->next;
@@ -79,14 +79,9 @@ void	printStack(t_node *currentNode)
 	t_node *p;
 
 	p = currentNode;
-	if (p == NULL)
-		return ;
-	if (p->next == NULL)
+	while (p != NULL)
 	{
-		printf("%d ", p->number);
-		return ;
+		printf("%d \n", p->number);
+		p = p->next;
 	}
-	else
-		printStack(p->next);
-	printf(" %d ", p->number);
 }

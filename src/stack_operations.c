@@ -6,7 +6,7 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 16:31:37 by vpogorel          #+#    #+#             */
-/*   Updated: 2025/03/12 20:14:11 by vpogorel         ###   ########.fr       */
+/*   Updated: 2025/03/21 17:33:17 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	add(t_stack *stack, int number)
 	stack->head = new_node;
 }
 
-void	rotate(t_stack *stack, t_node *currentNode)
+void	rotate(t_stack *stack, t_node *currentNode, char s)
 {
 	t_node *p;
 	int	temp;
@@ -31,17 +31,19 @@ void	rotate(t_stack *stack, t_node *currentNode)
 		stack->head->number = currentNode->number;
 		currentNode->number = temp;
 		currentNode = currentNode->next;
+		if (s != 't')
+			ft_printf("r%c\n", s);
 		return ;
 	}
 	else
-		rotate(stack, p->next);
+		rotate(stack, p->next, s);
 	temp = stack->head->number;
 	stack->head->number = currentNode->number;
 	currentNode->number = temp;
 	currentNode = currentNode->next;
 }
 
-void	reverseRotate(t_stack *stack)
+void	reverseRotate(t_stack *stack, char s)
 {
 	t_node	*head;
 	t_node	*currentNode;
@@ -60,9 +62,11 @@ void	reverseRotate(t_stack *stack)
 	temp = head->number;
 	head->number = currentNode->number;
 	currentNode->number = temp;
+	if (s != 't')
+		ft_printf("rr%c\n", s);
 }
 
-void	swap(t_stack *stack)
+void	swap(t_stack *stack, char s)
 {
 	int	temp;
 	t_node	*next;
@@ -73,6 +77,7 @@ void	swap(t_stack *stack)
 	temp = stack->head->number;
 	stack->head->number = next->number;
 	next->number = temp;
+	ft_printf("s%c\n", s);
 }
 
 void	pop(t_stack *a)
@@ -98,11 +103,13 @@ void	push(t_stacks *stacks, char dstack)
 		temp = stacks->stack_b->head->number;
 		pop(stacks->stack_b);
 		add(stacks->stack_a, temp);
+		ft_printf("pa\n");
 	}
 	else
 	{
-		temp = stacks->stack_b->head->number;
+		temp = stacks->stack_a->head->number;
 		pop(stacks->stack_a);
 		add(stacks->stack_b, temp);
+		ft_printf("pb\n");
 	}
 }
