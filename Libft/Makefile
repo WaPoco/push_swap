@@ -1,5 +1,5 @@
 # Compiler and flags
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
@@ -19,7 +19,7 @@ SRC = ft_atoi.c ft_bzero.c ft_calloc.c \
 			ft_strlcpy.c ft_strlen.c ft_strmapi.c \
 			ft_strncmp.c ft_strnstr.c ft_strrchr.c \
 			ft_strtrim.c ft_substr.c ft_tolower.c \
-			ft_toupper.c
+			ft_toupper.c ft_atol.c
 OBJ	= $(SRC:.c=.o)
 
 # Bonus source files and object files

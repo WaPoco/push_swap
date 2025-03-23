@@ -6,7 +6,7 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:38:56 by vpogorel          #+#    #+#             */
-/*   Updated: 2024/11/27 16:14:41 by vpogorel         ###   ########.fr       */
+/*   Updated: 2025/03/23 11:52:20 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
+long			ft_atol(const char *nptr);
 
 // Bonus part
 typedef struct s_list

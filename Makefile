@@ -3,9 +3,7 @@ CC=cc
 CFLAGS=-Wall -Wextra -Werror
 LFLAGS=-L./ft_printf -lftprintf -L./Libft -lft
 HEADER=./Include/push_swap.h
-SRCS=./src/push_swap.c ./src/stack.c ./src/stack_operations.c ./src/check_args.c ./src/sort.c ./src/find_cheapest.c ./src/move_stacks.c
-
-
+SRCS=./src/check_args.c ./src/cost.c ./src/find_cheapest.c ./src/free_stacks.c ./src/move_stacks.c ./src/push_swap.c ./src/sort.c ./src/stack_operations1.c ./src/stack_operations2.c ./src/stack_operations3.c
 OBJS=$(SRCS:.c=.o)
 
 all: Libft ft_printf $(NAME)
