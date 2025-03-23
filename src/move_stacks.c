@@ -6,7 +6,7 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 20:44:24 by vpogorel          #+#    #+#             */
-/*   Updated: 2025/03/22 17:19:02 by vpogorel         ###   ########.fr       */
+/*   Updated: 2025/03/22 21:38:53 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,12 @@ void	cheap_move_a(t_stacks *stacks)
 		push(stacks, 'a');
 		stacks->stack_b->move->p--;
 	}
-	//printStack(stacks->stack_a->head);
-	//printf("\n");
-	//printStack(stacks->stack_b->head);	
 }
+
 void	move_stack(t_stack *stack, int index)
 {
-    int	len_stack;
-	
+	int	len_stack;
+
 	stack->move->r = 0;
 	stack->move->rr = 0;
 	len_stack = stack_len(stack);
@@ -43,10 +41,10 @@ void	move_stack(t_stack *stack, int index)
 
 int	get_index_in_a(t_stack *stack, int number)
 {
-	int	new_index;
-	int	cur_diff;
-	int	max_diff;
-	int	i;
+	int		new_index;
+	int		cur_diff;
+	int		max_diff;
+	int		i;
 	t_node	*cur;
 
 	cur = stack->head;
@@ -72,27 +70,19 @@ int	get_index_in_a(t_stack *stack, int number)
 
 void	move_back(t_stacks *stacks)
 {
-	int			i;
-	int			size_b;
-	t_node      *head_b;
+	t_node	*head_b;
 
 	head_b = stacks->stack_b->head;
-	size_b = stack_len(stacks->stack_b);
 	find_stack_min_max(stacks->stack_b);
 	find_stack_min_max(stacks->stack_a);
-	i = 0;
 	while (stacks->stack_b->head != NULL)
 	{
 		head_b = stacks->stack_b->head;
 		find_stack_min_max(stacks->stack_b);
 		find_stack_min_max(stacks->stack_a);
-		//printf(" number b=%d\n", head_b->number);
-		//ft_printf(" index of b in a = %d max = %d \n", get_index_in_a(stacks->stack_a, head_b->number), stacks->stack_b->max);
-		move_stack(stacks->stack_a, get_index_in_a(stacks->stack_a, head_b->number));
+		move_stack(stacks->stack_a,
+			get_index_in_a(stacks->stack_a, head_b->number));
 		stacks->stack_b->move->p = 1;
 		cheap_move_a(stacks);
-		//ft_printf("\n");
-		//printStack(stacks->stack_a->head);
-		//ft_printf("\n");
 	}
 }
